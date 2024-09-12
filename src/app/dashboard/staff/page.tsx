@@ -1,4 +1,5 @@
 import { Search } from "./components/Search";
+import { AddInvite } from "./components/AddInvite";
 
 export default function Staff() {
   return (
@@ -8,8 +9,9 @@ export default function Staff() {
         A list of all staff, including retailers, distributors, drivers, and
         internal admins.
       </p>
-      <div className="grid grid-cols-3 gap-4 mt-6 mb-4">
+      <div className="grid grid-cols-3 gap-12 mt-6 mb-4">
         <Search />
+        <AddInvite />
       </div>
     </div>
   );
