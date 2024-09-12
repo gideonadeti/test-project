@@ -15,7 +15,7 @@ function AddBtn() {
   return (
     <Link href="add" className="primary-btn flex justify-center gap-1">
       <AddIcon />
-      Add Staff
+      Add User
     </Link>
   );
 }
@@ -24,7 +24,7 @@ function InviteBtn() {
   return (
     <Link href="invite" className="primary-btn flex justify-center gap-1">
       <SendIcon />
-      Invite Staff
+      Invite User
     </Link>
   );
 }

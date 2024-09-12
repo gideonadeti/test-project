@@ -30,8 +30,8 @@ const navItems: { name: string; route: string; icon: IconMapKey }[] = [
     icon: "PaymentIcon",
   },
   {
-    name: "Staff",
-    route: "/dashboard/staff",
+    name: "Users",
+    route: "/dashboard/users",
     icon: "GroupsIcon",
   },
   {
