@@ -8,7 +8,7 @@ import headset from "@/public/images/headset.svg";
 
 export function Header() {
   return (
-    <div className="flex flex-row justify-between items-center lg:px-12 px-3 shadow-md shadow-slate-100">
+    <div className="flex flex-row justify-between items-center lg:px-12 px-3 shadow-md shadow-slate-100 relative">
       <div className="flex flex-row items-center justify-center lg:text-2xl text-sm font-medium">
         <Image
           src={logo}

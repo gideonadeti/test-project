@@ -1,9 +1,5 @@
-import { Header } from "./components/Header"
+import { redirect } from "next/navigation";
 
-export default function Dashboard () {
-    return (
-        <div>
-            <Header />
-        </div>
-    )
+export default function Dashboard() {
+  redirect("/dashboard/staff");
 }
