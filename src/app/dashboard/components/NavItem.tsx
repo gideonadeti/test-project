@@ -1,6 +1,6 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { IconMapKey, iconMap } from "../lib/iconMap";
+import { IconMapKey, iconMap } from "../ui/iconMap";
 
 export function NavItem({
   name,

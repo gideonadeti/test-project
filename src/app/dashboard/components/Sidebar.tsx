@@ -1,7 +1,7 @@
 "use client";
 
 import { NavItem } from "./NavItem";
-import { IconMapKey } from "../lib/iconMap";
+import { IconMapKey } from "../ui/iconMap";
 
 const navItems: { name: string; route: string; icon: IconMapKey }[] = [
   {
