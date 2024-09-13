@@ -5,3 +5,7 @@
 .primary-btn {
   @apply px-4 py-2 rounded text-center bg-blue-600 w-full text-white hover:bg-blue-500 delay-100 transition ease-in;
 }
+
+.form-input {
+  @apply w-full px-4 py-2 mt-1 border rounded
+}

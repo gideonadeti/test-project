@@ -37,13 +37,13 @@ export async function SearchResults({
 
   return (
     <div className="h-full overflow-y-auto pt-4 pb-60">
-      {categorizedUsers.map((segment) => {
-        if (segment.users.length > 0) {
+      {categorizedUsers.map((category) => {
+        if (category.users.length > 0) {
           return (
             <Category
-              key={segment.type}
-              type={segment.type}
-              users={segment.users}
+              key={category.categoryName}
+              categoryName={category.categoryName}
+              users={category.users}
             />
           );
         }
@@ -54,29 +54,29 @@ export async function SearchResults({
 }
 
 // Function to categorize users by their role
-function categorizeUsers(users: User[]): { type: string; users: User[] }[] {
+function categorizeUsers(users: User[]): { categoryName: string; users: User[] }[] {
   return [
     {
-      type: "Retailers",
+      categoryName: "Retailers",
       users: users.filter((user) => user.role === "RETAILER"),
     },
     {
-      type: "Distributors",
+      categoryName: "Distributors",
       users: users.filter((user) => user.role === "DISTRIBUTOR"),
     },
-    { type: "Drivers", users: users.filter((user) => user.role === "DRIVER") },
+    { categoryName: "Drivers", users: users.filter((user) => user.role === "DRIVER") },
     {
-      type: "Internal Admins",
+      categoryName: "Internal Admins",
       users: users.filter((user) => user.role === "ADMIN"),
     },
   ];
 }
 
 // Group component to render a category of users
-function Category({ type, users }: { type: string; users: User[] }) {
+function Category({ categoryName, users }: { categoryName: string; users: User[] }) {
   return (
     <div className="mb-6">
-      <h5 className="border-b px-8 text-xl font-medium">{type}</h5>
+      <h5 className="border-b px-8 text-xl font-medium">{categoryName}</h5>
       <ul className="px-8 space-y-2">
         {users.map((user) => (
           <UserItem

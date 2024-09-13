@@ -50,6 +50,31 @@ export async function getUsers(name: string, role: string) {
   }
 }
 
+export async function addUser(
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  role: string,
+  invited: boolean
+) {
+  try {
+    await prisma.user.create({
+      data: {
+        firstName,
+        lastName,
+        email,
+        password,
+        role: mapRoleToRoleType(role),
+        status: invited ? "PENDING" : "ACTIVE",
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error adding user");
+  }
+}
+
 // Helper function to map userType to role
 function mapRoleToRoleType(role: string) {
   switch (role) {

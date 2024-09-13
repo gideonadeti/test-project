@@ -13,7 +13,7 @@ export function AddInvite() {
 
 function AddBtn() {
   return (
-    <Link href="add" className="primary-btn flex justify-center gap-1">
+    <Link href="users/add" className="primary-btn flex justify-center gap-1">
       <AddIcon />
       Add User
     </Link>
@@ -22,7 +22,7 @@ function AddBtn() {
 
 function InviteBtn() {
   return (
-    <Link href="invite" className="primary-btn flex justify-center gap-1">
+    <Link href="users/invite" className="primary-btn flex justify-center gap-1">
       <SendIcon />
       Invite User
     </Link>
