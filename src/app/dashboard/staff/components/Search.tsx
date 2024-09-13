@@ -34,10 +34,10 @@ function SearchSelect() {
       defaultValue={searchParams.get("role") || "all"}
     >
       <option value="all">All</option>
-      <option value="retailer">Retailers</option>
-      <option value="distributor">Distributors</option>
-      <option value="driver">Drivers</option>
-      <option value="admin">Internal Admins</option>
+      <option value="RETAILER">Retailers</option>
+      <option value="DISTRIBUTOR">Distributors</option>
+      <option value="DRIVER">Drivers</option>
+      <option value="ADMIN">Internal Admins</option>
     </select>
   );
 }
