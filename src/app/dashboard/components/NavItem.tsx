@@ -15,7 +15,7 @@ export function NavItem({
 
   const style =
     pathname === route
-      ? "border-l-8 border-l-secondary-red text-secondary-red"
+      ? "border-l-8 border-l-blue-500 text-blue-500"
       : "text-slate-400 hover:text-slate-600";
 
   return (

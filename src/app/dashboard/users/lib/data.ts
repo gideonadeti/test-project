@@ -1,0 +1,67 @@
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export async function getUsers(name: string, role: string) {
+  try {
+    let users;
+
+    if (!name && !role) {
+      // Case 1: No filters, return all users
+      users = await prisma.user.findMany();
+    } else if (name && !role) {
+      // Case 2: Filter by name (either firstName or lastName)
+      users = await prisma.user.findMany({
+        where: {
+          OR: [
+            { firstName: { contains: name, mode: "insensitive" } },
+            { lastName: { contains: name, mode: "insensitive" } },
+          ],
+        },
+      });
+    } else if (!name && role) {
+      // Case 3: Filter by role (role)
+      users = await prisma.user.findMany({
+        where: {
+          role: mapRoleToRoleType(role),
+        },
+      });
+    } else if (name && role) {
+      // Case 4: Filter by both name and role
+      users = await prisma.user.findMany({
+        where: {
+          AND: [
+            {
+              OR: [
+                { firstName: { contains: name, mode: "insensitive" } },
+                { lastName: { contains: name, mode: "insensitive" } },
+              ],
+            },
+            { role: mapRoleToRoleType(role) },
+          ],
+        },
+      });
+    }
+
+    return users;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error fetching users");
+  }
+}
+
+// Helper function to map userType to role
+function mapRoleToRoleType(role: string) {
+  switch (role) {
+    case "retailer":
+      return "RETAILER";
+    case "distributor":
+      return "DISTRIBUTOR";
+    case "driver":
+      return "DRIVER";
+    case "admin":
+      return "ADMIN";
+    default:
+      throw new Error(`Unknown userType: ${role}`);
+  }
+}
