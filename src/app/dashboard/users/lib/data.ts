@@ -75,6 +75,20 @@ export async function addUser(
   }
 }
 
+export async function getUser(id: string) {
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return user;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // Helper function to map userType to role
 function mapRoleToRoleType(role: string) {
   switch (role) {
