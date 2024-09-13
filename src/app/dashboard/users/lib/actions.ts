@@ -93,6 +93,6 @@ export async function inviteUser(formData: FormData) {
 
   await sendInviteEmail(firstName, email, password);
 
-  revalidatePath("/");
-  redirect("/");
+  revalidatePath("/dashboard/users");
+  redirect("/dashboard/users");
 }
