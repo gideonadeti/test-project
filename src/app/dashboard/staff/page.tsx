@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { Search } from "./components/Search";
 import { AddInvite } from "./components/AddInvite";
 
@@ -10,7 +12,9 @@ export default function Users() {
         internal admins.
       </p>
       <div className="grid grid-cols-3 gap-12 mt-6 mb-4">
-        <Search />
+        <Suspense>
+          <Search />
+        </Suspense>
         <AddInvite />
       </div>
     </div>
